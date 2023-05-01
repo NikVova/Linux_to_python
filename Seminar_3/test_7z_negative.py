@@ -1,14 +1,14 @@
 from checkout import checkout_negative
+import yaml
+from conftest import data
 
-folder_out_negative = "/home/user/tst/badarx"
-folder_ext = "/home/user/tst/ext"
 
-
-def test_step1():
+def test_step8(write_stat_file):
     # test1
-    assert checkout_negative("cd {}; 7z e badarx.7z -o{} -y".format(folder_out_negative, folder_ext), "ERROR"), "Test4 Fail"
+    assert checkout_negative("cd {}; 7z e badarx.7z -o{} -y".format(data['folder_out'], data['folder_ext']),
+                             "ERROR"), "Test8 Fail"
 
-#
-# def test_step2():
-#     # test2
-#     assert checkout_negative("cd {}; 7z t badarx.7z".format(folder_out_negative), "ERROR"), "Test5 Fail"
+
+def test_step9(write_stat_file):
+    # test2
+    assert checkout_negative("cd {}; 7z t badarx.7z".format(data['folder_out']), "ERROR"), "Test9 Fail"
